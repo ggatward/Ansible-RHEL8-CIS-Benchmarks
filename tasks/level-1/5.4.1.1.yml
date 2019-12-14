@@ -4,7 +4,7 @@
 # 5.4.1.1 Ensure password expiration is 90 days or less
 
 - name: 5.4.1.1 - Obtain a list of user accounts
-  shell: "egrep ^[^:]+:[^\\!*] /etc/shadow | cut -d: -f1"
+  shell: "egrep ^[^:]+:[^\\!*] /etc/shadow | cut -d: -f1 | grep -v ^root$"
   register: egrep_5_4_1_1
   check_mode: no
   changed_when: False
